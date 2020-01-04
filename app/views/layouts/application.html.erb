@@ -12,11 +12,10 @@
   </head>
 
   <body>
-
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= render 'layouts/navbar' %>
-    <div class="container portada">
-    <img src="<%=asset_path('armario.jpg')%>" alt="foto de portada" width="50%">
-    </div>
+
 
     <%= yield %>
 
