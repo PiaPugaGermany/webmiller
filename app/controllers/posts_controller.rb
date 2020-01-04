@@ -25,8 +25,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+# agregar current_user al metodo de instancia de post.user
     @post.user = current_user
-    
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
