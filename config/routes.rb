@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  get 'aboutus', to:'pages#aboutus'
-  # get 'pages/aboutus'
+  get 'orders/create'
 
-  resources :products
+  resources :products do
+    resources :orders, only: :create
+  end
+
+  resources :orders, only: :index
+
   devise_for :users
   resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'posts#index'
 
+  get 'aboutus', to:'pages#aboutus'
+  # get 'pages/aboutus'
 end
