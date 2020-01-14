@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  authorize_resource  
 
   # GET /posts
   # GET /posts.json
@@ -10,6 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    # @comments = @post.all
   end
 
   # GET /posts/new
@@ -73,4 +75,6 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :description, :photo)
     end
+
+
 end
