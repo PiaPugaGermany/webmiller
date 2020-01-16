@@ -14,10 +14,10 @@
   <body>
 
     <%= render 'layouts/navbar' %>
-    <% if notice %>
+    <% if notice.present? %>
     <p class="notice alert-success"><%= notice %></p>
     <% end %>
-    <% if alert %>
+    <% if alert.present? %>
     <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <%= yield %>
