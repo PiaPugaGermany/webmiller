@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
-  # before_action :set_post, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # load_and_authorize_resource
+
+
   # levanta una excepcion si el usuario no tiene permiso. En el application controller, se maneja la excepcion para poder redirigir al usuario a un pagina especifica, mandando algun mensaje en caso que el usuario no tenga el acceso específico
 
   # GET /posts

@@ -1,12 +1,21 @@
+<div class="container">
 <table class="table">
+  <h1>Carrito de compra </h1>
+  <thead>
+    <th>Producto</th>
+    <th>Descripción</th>
+    <th>Precio</th>
+  </thead>
   <% @orders.each do |order| %>
     <tr>
+      <td><%= image_tag order.product.photo.thumb%></td>
       <td> <%= order.product.name %> </td>
-      <td>  <%= order.product.price %></td>
+      <td>  <%= number_to_currency(order.product.price, precision: 0, delimiter: ".") %></td>
     </tr>
   <% end %>
   <tr>
-    <td>Total a pagar:</td>
-    <td> <%= @orders.map{|order|order.product.price}.sum %> </td>
+    <td colspan="2">Total a pagar</td>
+    <td> <%= number_to_currency(@orders.map{|order|  order.product.price}.sum, precision: 0, delimiter: ".") %> </td>
   </tr>
 </table>
+</div>

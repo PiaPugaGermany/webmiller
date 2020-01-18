@@ -1,19 +1,26 @@
 
+<div class="container">
+
+
+<h1>
+  <strong><%= @post.title %></strong>
+
+</h1>
 
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
+  <strong><%= @post.description %></strong>
+
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @post.description %>
+  <strong><%= image_tag @post.photo %></strong>
+
 </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @post.photo %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if can?(:edit, @post) %>
+<p><%= link_to 'Edit', edit_post_path(@post) %></p>
+<% end %>
 <%= link_to 'Back', posts_path %>
+
+
+</div>

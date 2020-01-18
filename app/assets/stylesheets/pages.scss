@@ -1,3 +1,16 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero {
+  background-image: url("compras.jpg");
+  background-size: cover;
+  height: 600px;
+  text-align: right;
+  color: white;
+}
+
+.hero-description {
+  font-size: 6em;
+  font-weight: 800;
+}

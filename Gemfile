@@ -12,6 +12,7 @@ gem 'rails', '~> 5.1.7'
 # Use postgresql as the database for Active Record
 
 gem 'cancancan'
+gem 'mini_magick'
 
 gem 'devise'
 gem 'pg', '>= 0.18', '< 2.0'
