@@ -27,15 +27,20 @@
     </ul>
 
     <!-- INICIO DE SESIÓN/REGISTRO -->
+
     <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= users_path %>">Bienvenid@ <%= current_user.name %></a>
+      </li>
+      <% end %>
       <li class="nav-item carrito">
         <a class="nav-link" href="<%= orders_path %>">
           <i class="fa fa-2x fa-shopping-cart"></i>
         </a>
       </li>
       <% if user_signed_in? %>
-        <p>Bienvenid@ <%= current_user.name %></p>
-        <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'%>
+        <li class="nav-item "><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'%></li>
       <% else %>
 
         <%= link_to "Iniciar sesión", new_user_session_path, class: 'btn btn-light' %>

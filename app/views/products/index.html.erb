@@ -1,5 +1,11 @@
 <div class="container">
   <h1>Nueva colección</h1>
+
+  <div class="">
+    <% if can?(:create, @product) %>
+      <%= link_to 'New Product', new_product_path %>
+    <% end %>
+  </div>
   <div class="row row-cols-1 row-cols-md-2">
 
     <% @products.each_slice(4) do |row| %>
@@ -12,11 +18,16 @@
               <h5 class="card-title"><%= product.name %></h5>
               <p class="card-text"><%= product.description %></p>
               <p class="card-text"><%= number_to_currency product.price, precision: 0, delimiter: "." %></p>
-              <%= link_to "Comprar", product_orders_path(product), class: 'btn btn-outline-secondary btn-lg', method: :post %>
+              <%= link_to "Comprar", product_orders_path(product), class: 'btn btn-outline-primary btn-lg', method: :post %>
+              <%= link_to 'Ver más', product, class: 'btn btn-outline-secondary btn-lg' %>
 
-              <p><%= link_to 'Show', product %></p>
+              <% if can?(:edit, product) %>
               <p><%= link_to 'Edit', edit_product_path(product) %></p>
-              <p><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              <% end %>
+
+              <% if can?(:destroy, product) %>
+              <p><%= link_to 'Destroy', product, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar esto?' } %></p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -24,5 +35,3 @@
     <% end %>
   </div>
 </div>
-
-<%= link_to 'New Product', new_product_path %>

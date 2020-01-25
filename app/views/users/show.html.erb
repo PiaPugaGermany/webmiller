@@ -1,0 +1,10 @@
+<h1>Mi perfil</h1>
+
+<div class="">
+  <p><%= @user.name%> </p>
+  <p>
+    <strong><%= image_tag @user.photo %></strong>
+  </p>
+
+<a href="<%= edit_user_registration_path(current_user)%>">Editar</a>
+</div>
