@@ -3,9 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :orders
   has_many :products, through: :orders
+  has_many :comments, dependent: :destroy
+
   mount_uploader :photo, AvatarUploader
 
   enum role: [:admin, :visit]

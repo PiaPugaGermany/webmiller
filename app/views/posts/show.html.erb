@@ -4,18 +4,22 @@
       <h1>
         <strong><%= @post.title %></strong>
       </h1>
+      <strong><%= image_tag @post.photo, class: 'img-fluid' %></strong>
+      <i class="fa fa-calendar"><%= @post.created_at.strftime("%d-%m-%Y")%></i>
+      <i class="fa fa-user"><%= @post.user.name%></i>
+      <i class="fa fa-folder-open-o">Categorías</i>
       <p>
         <strong><%= @post.description %></strong>
       </p>
-      <p>
-        <strong><%= image_tag @post.photo, class: 'img-fluid' %></strong>
-      </p>
       <% if can?(:edit, @post) %>
-      <p><%= link_to 'Edit', edit_post_path(@post) %></p>
+        <p><%= link_to 'Edit', edit_post_path(@post) %></p>
       <% end %>
       <%= link_to 'Back', posts_path %>
-    </div>
 
+    <div class="">
+      <%= render 'comments/form' %>
+    </div>
+    </div>
     <div class="col-12 col-sm-4">
       <p>Entradas recientes</p>
       <p>Categorías</p>
