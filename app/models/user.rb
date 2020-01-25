@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :orders
   has_many :products, through: :orders
+  mount_uploader :photo, AvatarUploader
 
   enum role: [:admin, :visit]
 

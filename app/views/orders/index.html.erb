@@ -1,21 +1,34 @@
 <div class="container">
-<table class="table">
-  <h1>Carrito de compra </h1>
-  <thead>
-    <th>Producto</th>
-    <th>Descripción</th>
-    <th>Precio</th>
-  </thead>
-  <% @orders.each do |order| %>
+  <table class="table">
+    <h1>Carrito de compra
+    </h1>
+    <thead>
+
+      <th>Producto</th>
+      <th>Descripción</th>
+      <th colspan="2">Precio</th>
+
+    </thead>
+    <% @orders.each do |order| %>
+
+      <tr>
+        <td><%= image_tag order.product.photo.thumb%></td>
+        <td>
+          <%= order.product.name %>
+        </td>
+        <td>
+          <%= number_to_currency(order.product.price, precision: 0, delimiter: ".") %></td>
+        <td>
+          <%= link_to 'Eliminar', order, method: :delete, class: 'btn btn-outline-danger btn-lg', data: { confirm: '¿Estás seguro que no quieres comprar esto?' } %>
+        </td>
+      </tr>
+    <% end %>
     <tr>
-      <td><%= image_tag order.product.photo.thumb%></td>
-      <td> <%= order.product.name %> </td>
-      <td>  <%= number_to_currency(order.product.price, precision: 0, delimiter: ".") %></td>
+      <td colspan="2">Total a pagar</td>
+      <td>
+        <%= number_to_currency(@orders.map{|order| order.product.price}.sum, precision: 0, delimiter: ".") %>
+      </td>
     </tr>
-  <% end %>
-  <tr>
-    <td colspan="2">Total a pagar</td>
-    <td> <%= number_to_currency(@orders.map{|order|  order.product.price}.sum, precision: 0, delimiter: ".") %> </td>
-  </tr>
-</table>
+  </table>
+  <button type="button" class="btn btn-success">Pagar</button>
 </div>
