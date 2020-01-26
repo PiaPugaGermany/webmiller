@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # get 'users/show'
 
   # get 'orders/create'
@@ -14,7 +15,9 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   resource :users, only: [:show]
-  resources :posts
+  resources :posts do
+      resources :comments
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#aboutus'
   # get 'aboutus', to:'pages#aboutus'

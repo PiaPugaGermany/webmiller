@@ -1,24 +1,33 @@
-
 <div class="container">
+  <div class="row">
 
-<h1>
-  <strong><%= @product.name %></strong>
-</h1>
-<p>
-  <strong><%= image_tag @product.photo %></strong>
-</p>
-<p>
-  <strong><%= @product.description %></strong>
-</p>
-<p>
-  <strong><%= number_to_currency @product.price, precision: 0, delimiter: "." %></strong>
-  <%= link_to "Comprar", product_orders_path(@product), class: 'btn btn-outline-primary btn-lg', method: :post %>
-</p>
-      <% if can?(:edit, @product) %>
-    <p><%= link_to 'Edit', edit_product_path(@product) %></p>
-    <% end %>
-    <% if can?(:destroy, @product) %>
-    <p><%= link_to 'Destroy', @product, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar esto?' } %></p>
-    <% end %>
-    <%= link_to 'Back', products_path %>
+    <div class="col-12 col-sm-8">
+      <h1>
+        <strong><%= @product.name %></strong>
+      </h1>
+      <p>
+        <strong><%= image_tag @product.photo, class: 'img-fluid' %></strong>
+      </p>
+    </div>
+    <div class="col-12 col-sm-4">
+      <div class="container">
+        <p>
+          <strong>Detalle del producto:
+          </strong>
+          <%= @product.description %>
+        </p>
+        <p>
+          <strong><%= number_to_currency @product.price, precision: 0, delimiter: "." %></strong>
+          <%= link_to "Comprar", product_orders_path(@product), class: 'btn btn-outline-primary btn-lg', method: :post %>
+        </p>
+        <% if can?(:edit, @product) %>
+          <p><%= link_to 'Editar', edit_product_path(@product) %></p>
+        <% end %>
+        <% if can?(:destroy, @product) %>
+          <p><%= link_to 'Eliminar', @product, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar esto?' } %></p>
+        <% end %>
+        <%= link_to 'Volver', products_path %>
+      </div>
+    </div>
+  </div>
 </div>

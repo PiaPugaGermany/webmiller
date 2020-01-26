@@ -30,8 +30,9 @@
 
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= users_path %>">Bienvenid@ <%= current_user.name %></a>
+
+      <li>
+        <a class="nav-link" href="<%= users_path %>"> <%= image_tag current_user.photo, class: 'avatar' %>    Bienvenid@ <%= current_user.name %></a>
       </li>
       <% end %>
       <li class="nav-item carrito">
@@ -40,11 +41,11 @@
         </a>
       </li>
       <% if user_signed_in? %>
-        <li class="nav-item "><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'%></li>
+        <li class="nav-item "><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: 'btn btn-nav'%></li>
       <% else %>
 
-        <%= link_to "Iniciar sesión", new_user_session_path, class: 'btn btn-light' %>
-        <%= link_to "Registrarse", new_user_registration_path, class: 'btn btn-light' %>
+        <li><%= link_to "Iniciar sesión", new_user_session_path, class: 'btn btn-nav' %></li>
+        <li><%= link_to "Registrarse", new_user_registration_path, class: 'btn btn-nav' %></li>
       <% end %>
     </ul>
 

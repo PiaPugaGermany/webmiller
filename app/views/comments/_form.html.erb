@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12">
+    <div class="">
+      <legend>Déjanos un comentario</legend>
+      </br>
+      <%= form_with(model: [@post, Comment.new], local: true, html: { class: 'form-horizontal' }) do |f| %>
+      <div class="form-group">
+        <div class="col-md-12">
+          <%= f.text_area :content, placeholder: 'Escribe tu comentario aquí...', class: 'form-control' %>
+        </div>
+      </div>
+      <%= f.submit 'Comentar', class: 'btn btn-primary container px-5' %>
+    <% end %>
+  </div>
+</div>
+</div>
+</br></br></br>
+<div class="col-12">
+<% @comments.each do |comment| %>
+
+  <%= image_tag comment.user.photo, class: 'avatar' %>
+  <strong><%= comment.user.name %>:</strong>
+  <div class="card">
+    <p><%= comment.content %></p>
+  </div>
+  <div class="text-right">
+    <% if can? :destroy, comment %>
+      <%= link_to 'Eliminar', post_comment_path(@post,comment), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar el Comentario?' }, class: 'btn btn-sm btn-danger' %>
+    <% end %>
+  </div>
+  <p class="font-italic text-right">publicado el:
+    <%= comment.created_at.strftime("%d/%m/%Y")%></p>
+<% end %>
+</div>
+<%= link_to 'Volver', posts_path, class:'btn btn-outline-info' %>

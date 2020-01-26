@@ -13,9 +13,9 @@
     <img src="<%= asset_path(post.photo.url) %>" class="card-img-top" alt="imagen del post">
     <div class="card-body">
       <h5 class="card-title"><%= post.title %></h5>
-      <p class="card-text"><%= post.description %></p>
+      <p class="card-text"><%= post.description.truncate(80) %></p>
       <p class="card-text"><%= link_to 'Leer', post %></p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-muted">Fecha publicación: <%= post.created_at.strftime("%d/%m/%Y")%></small></p>
 
       <% if can?(:edit, post) %>
       <p><%= link_to 'Edit', edit_post_path(post) %></p>

@@ -19,7 +19,13 @@
         <td>
           <%= number_to_currency(order.product.price, precision: 0, delimiter: ".") %></td>
         <td>
-          <%= link_to 'Eliminar', order, method: :delete, class: 'btn btn-outline-danger btn-lg', data: { confirm: '¿Estás seguro que no quieres comprar esto?' } %>
+
+        <a href="/orders/<%= order.id %>" data-method="delete" data-confirm="¿Estás seguro que no quieres comprar esto?">
+          <button class="badge badge-pill badge-danger"><i class="fa fa-close"></i></button>
+        </a>
+
+
+
         </td>
       </tr>
     <% end %>
