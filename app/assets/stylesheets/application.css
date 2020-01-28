@@ -17,22 +17,5 @@
 
  *= require_tree .
  *= require_self
+ *= require buttons
  */
-.carrito {
-  text-align: right;
-}
-
-/* .btn {
-  text-align: center;
-  font-size: 1rem;
-} */
-.avatar {
-  vertical-align: middle;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-h1, h2 {
-  color: #0C05A1;
-}

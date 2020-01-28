@@ -10,9 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require alertify
+//= require jquery
+//= require jquery_ujs
 //= require alertify/confirm-modal
-//= require alertify/confirm-ujs
+//= require popper
+//= require bootstrap
+//= require summernote/summernote-bs4.min
+//= require summernote-init
+//= require alertify
 //= require rails-ujs
+//= require alertify/confirm-ujs
 //= require turbolinks
 //= require_tree .

@@ -7,6 +7,10 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'activeadmin'
+gem 'jquery-rails'
+gem 'bootstrap'
+gem 'summernote-rails', '~> 0.8.12.0'
 gem 'alertifyjs-rails'
 gem 'fog-aws'
 gem 'carrierwave'
