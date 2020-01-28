@@ -20,5 +20,6 @@
 //= require alertify
 //= require rails-ujs
 //= require alertify/confirm-ujs
+//= require chartkick
 //= require turbolinks
 //= require_tree .

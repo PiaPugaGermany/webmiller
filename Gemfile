@@ -7,6 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
 gem 'activeadmin'
 gem 'jquery-rails'
 gem 'bootstrap'
@@ -15,6 +16,8 @@ gem 'alertifyjs-rails'
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'rails', '~> 5.1.7'
+gem 'chartkick'
+gem 'groupdate'
 # Use postgresql as the database for Active Record
 
 gem 'cancancan'
