@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   resources :orders, only: :index
 
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    omniauth_callbacks:'users/omniauth_callbacks'
   }
   resource :users, only: [:show]
   resources :posts do

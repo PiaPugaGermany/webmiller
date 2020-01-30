@@ -24,6 +24,7 @@ gem 'cancancan'
 gem 'mini_magick'
 
 gem 'devise'
+gem 'omniauth-facebook'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
