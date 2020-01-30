@@ -4,12 +4,14 @@
       <h1>
         <strong><%= @post.title %></strong>
       </h1>
-      <strong><%= image_tag @post.photo, class: 'img-fluid' %></strong>
       <i class="fa fa-calendar"><%= @post.created_at.strftime("%d-%m-%Y")%></i>
       <i class="fa fa-user"><%= @post.user.name%></i>
       <i class="fa fa-folder-open-o">Categorías</i>
+      
+      <strong><%= image_tag @post.photo, class: 'img-fluid' %></strong>
+
       <p>
-      <%= @post.description %>
+      <%= @post.description.html_safe %>
       </p>
       <% if can?(:edit, @post) %>
         <p><%= link_to 'Edit', edit_post_path(@post) %></p>
