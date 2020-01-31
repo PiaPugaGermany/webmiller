@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :products, through: :orders
   has_many :comments, dependent: :destroy
+  has_many :categories, through: :product
 
   mount_uploader :photo, AvatarUploader
 

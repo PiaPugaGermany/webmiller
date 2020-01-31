@@ -2,21 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .hero {
-//   background-image: url("compras.jpg");
-//   background-size: cover;
-//   height: 600px;
-//   text-align: right;
-//   color: white;
-//   text-shadow: 3px 3px 3px black;
-// }
-//
-// .hero-description {
-//   font-size: 6em;
-//   font-weight: 800;
-// }
-
-
 
 body, html {
     height: 100%;
@@ -65,4 +50,15 @@ body, html {
 
 h1, h2 {
   color: #0C05A1;
+}
+
+.btn-nav:hover {
+  background-color: #0C05A1;
+  text-decoration: none;
+  color: White;
+
+}
+
+.btn-nav {
+  margin: 2px 2px 2px 2px;
 }

@@ -1,33 +1,42 @@
 <div class="container">
 
-
-<h1>Blog</h1>
-
-<% if can?(:create, @post) %>
-<%= link_to 'Nuevo Post', new_post_path %>
-<% end %>
-
-<div class="card-deck">
-  <% @posts.each do |post| %>
-  <div class="card">
-    <img src="<%= asset_path(post.photo.url) %>" class="card-img-top" alt="imagen del post">
-    <div class="card-body">
-      <h5 class="card-title"><%= post.title %></h5>
-      <p class="card-text"><%= strip_tags(post.description.html_safe.truncate(80, separator: /\s/)) %></p>
-      <p class="card-text"><%= link_to 'Leer', post %></p>
-      <p class="card-text"><small class="text-muted">Fecha publicación: <%= post.created_at.strftime("%d/%m/%Y")%></small></p>
-
-      <% if can?(:edit, post) %>
-      <p><%= link_to 'Edit', edit_post_path(post) %></p>
-      <% end %>
-      <div>
-        <% if can?(:destroy, post) %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <h1>Blog</h1>
+    <p>¿Te gustan mis diseños? Conoce más sobre el origen e inspiración de mis colecciones en esta sección. Además, entérate de las últimas novedades, fechas y lugares de nuestos Showrooms :) </p>
+  <% if can?(:create, @post) %>
+    <%= link_to 'Nuevo Post', new_post_path %>
   <% end %>
 
-  
+  <div class="card-deck">
+      <% @posts.each do |post| %>
+
+      <div class="col-6 mb-4">
+        <div class="card">
+          <img src="<%= asset_path(post.photo.url) %>" class="card-img-top img-fluid" alt="imagen del post">
+          <div class="card-body">
+            <h5 class="card-title titulo"><%= link_to post.title, post %></h5>
+            <p class="card-text"><%= strip_tags(post.description.html_safe.truncate(80, separator: /\s/)) %></p>
+            <p class="card-text"><%= link_to 'Leer post', post, class: 'btn btn-outline-secondary btn-lg' %></p>
+            <p class="card-text">
+              <small class="text-muted">Fecha publicación:
+                <%= post.created_at.strftime("%d/%m/%Y")%></small>
+            </p>
+
+            <% if can?(:edit, post) %>
+              <p><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-secondary btn-sm' %></p>
+            <% end %>
+            <div>
+              <% if can?(:destroy, post) %>
+                <%= link_to 'Destroy', post, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div>
+      </div>
+    </div>
+  <% end %>
+
+
+  </div>
+
 </div>

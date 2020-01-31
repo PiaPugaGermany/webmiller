@@ -167,7 +167,8 @@ a {
 }
 
 a:hover {
-  color: #1559cf;
+  /* color: #1559cf; */
+  color: gray;
   text-decoration: underline;
 }
 

@@ -7,19 +7,28 @@
       </h1>
       <p>
         <strong><%= image_tag @product.photo, class: 'img-fluid' %></strong>
+        <i class="fa fa-folder-open-o">
+          Categoría:
+          <%= link_to @product.category && @product.category.name, categories_path %>
+        </i>
+
       </p>
     </div>
     <div class="col-12 col-sm-4">
       <div class="container">
+        <br><br><br>
         <p>
-          <strong>Detalle del producto:
-          </strong>
+          <strong>Detalle del producto:</strong>
+          <br>
           <%= @product.description %>
         </p>
         <p>
           <strong><%= number_to_currency @product.price, precision: 0, delimiter: "." %></strong>
+        </p>
+        <p>
           <%= link_to "Comprar", product_orders_path(@product), class: 'btn btn-outline-primary btn-lg', method: :post %>
         </p>
+
         <% if can?(:edit, @product) %>
           <p><%= link_to 'Editar', edit_product_path(@product) %></p>
         <% end %>

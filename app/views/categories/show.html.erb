@@ -1,11 +1,26 @@
 <div class="container">
-  <h1>Nueva colección</h1>
 
-  <div class="">
-    <% if can?(:create, @product) %>
-      <%= link_to 'New Product', new_product_path %>
+  <h1><%= @category.name %></h1>
+
+  <div class="row">
+
+    <% if can?(:edit, @category) %>
+      <p><%= link_to 'Edit', edit_category_path(@category), class: 'btn btn-secondary btn-sm boton-edit' %></p>
     <% end %>
+
+    <% if can?(:destroy, @category) %>
+      <p><%= link_to 'Destroy', @category, class: 'btn btn-danger btn-sm boton-delete', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar esto?' } %></p>
+    <% end %>
+
   </div>
+
+  <h2 class="h5">Listado de productos</h2>
+  <ul>
+    <% @products.each do |p| %>
+      <li><%= p.name %></li>
+    <% end %>
+  </ul>
+
   <div class="row row-cols-1 row-cols-md-2">
 
     <% @products.each_slice(4) do |row| %>
@@ -15,18 +30,13 @@
           <div class="card">
             <img src="<%= asset_path product.photo %>" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title titulo"><%= link_to product.name, product %></h5>
+              <h5 class="card-title titulo"><%= product.name %></h5>
               <p class="card-text"><%= product.description %></p>
               <p class="card-text"><%= product.size %></p>
-              <p class="card-text font-weight-bold text-monospace"><%= number_to_currency product.price, precision: 0, delimiter: "." %></p>
-
-              <p><i class="fa fa-folder-open-o"></i><%= link_to product.category && product.category.name, categories_path, class: 'text-reset' %></p>
-
-              
-
-              <%= link_to 'Ver más', product, class: 'btn btn-outline-secondary btn-lg' %>
-
+              <p class="card-text"><%= number_to_currency product.price, precision: 0, delimiter: "." %></p>
+              <p><%= product.category && product.category.name %></p>
               <%= link_to "Comprar", product_orders_path(product), class: 'btn btn-outline-primary btn-lg', method: :post %>
+              <%= link_to 'Ver más', product, class: 'btn btn-outline-secondary btn-lg' %>
 
               <div class="row">
                 <% if can?(:edit, product) %>
@@ -43,4 +53,5 @@
       <% end %>
     <% end %>
   </div>
+  <p><%= link_to 'Volver', categories_path %></p>
 </div>

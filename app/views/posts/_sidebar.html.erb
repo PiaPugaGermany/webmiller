@@ -1,0 +1,21 @@
+<div class="mt-1">
+  <h1 class="h4 mb-5 blog-sidebar">Lee mis otros artículos</h1>
+  <% @posts.each do |post| %>
+    <div class="card mb-3">
+      <div class="row no-gutters align-items-center">
+        <div class="col-md-4 ">
+          <img src="<%= post.photo.url%>" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+
+            <p class="card-title">
+              <strong><%= link_to post.title, post, class:'stretched-link'%></strong>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

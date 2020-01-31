@@ -18,8 +18,8 @@ class CommentsController < ApplicationController
   # end
 
   # GET /comments/1/edit
-  # def edit
-  # end
+  def edit
+  end
 
   # POST /comments
   # POST /comments.json

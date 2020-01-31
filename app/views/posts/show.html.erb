@@ -2,47 +2,31 @@
   <div class="row">
     <div class="col-12 col-sm-8">
       <h1>
-        <strong><%= @post.title %></strong>
+        <strong class="titulo-blog"><%= @post.title %></strong>
       </h1>
-      <i class="fa fa-calendar"><%= @post.created_at.strftime("%d-%m-%Y")%></i>
-      <i class="fa fa-user"><%= @post.user.name%></i>
-      <i class="fa fa-folder-open-o">Categorías</i>
-      
-      <strong><%= image_tag @post.photo, class: 'img-fluid' %></strong>
-
       <p>
-      <%= @post.description.html_safe %>
+        <i class="fa fa-calendar">Fecha de publicación <%= @post.created_at.strftime("%d-%m-%Y")%></i>
+      </p>
+
+      <strong><%= image_tag @post.photo, class: 'img-fluid' %></strong>
+      <p>
+        <i class="fa fa-user"> Publicado por <%= @post.user.name%></i>
+      </p>
+
+      <p class="text-justify texto-blog">
+        <%= @post.description.html_safe %>
       </p>
       <% if can?(:edit, @post) %>
-        <p><%= link_to 'Edit', edit_post_path(@post) %></p>
+        <p><%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary btn-sm boton-edit'%></p>
       <% end %>
-      <%= link_to 'Back', posts_path %>
 
-    <div class="">
-      <%= render 'comments/form' %>
-    </div>
+
+      <div class="">
+        <%= render 'comments/form' %>
+      </div>
     </div>
     <div class="col-12 col-sm-4">
-      <p>Entradas recientes</p>
-      <p>Categorías</p>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-
-      </ul>
+      <%= render 'sidebar' %>
     </div>
   </div>
 </div>
