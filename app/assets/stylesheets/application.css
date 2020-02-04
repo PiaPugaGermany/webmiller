@@ -17,6 +17,8 @@
 *= require_self
 *= stub "active_admin"
 */
+
+
 .btn-nav:hover {
   background-color: #0C05A1;
   text-decoration: none;
